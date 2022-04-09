@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://xycrgl.cug.edu.cn/ -->
+<html style="font-size: 53.4667px;"><script id="allow-copy_script">(function agent() {
+    let unlock = false
+    document.addEventListener('allow_copy', (event) => {
+      unlock = event.detail.unlock
+    })
+
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = (e) => {
+      if (unlock) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach((evt) => {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>通行预约系统</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./通行预约系统_files/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./通行预约系统_files/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="./通行预约系统_files/style.css">
+    <script src="./通行预约系统_files/flexible.js.下载" type="text/javascript" charset="utf-8"></script>
+    <script src="./通行预约系统_files/swiper-bundle.min.js.下载"></script>
+    <script src="./通行预约系统_files/vue.min.js.下载" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body style="font-size: 16.05px;">
+    <div id="app"><div class="top-bar"><span>通行预约系统</span></div> <div class="slider"><div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"><div class="swiper-wrapper" id="swiper-wrapper-f9df5934e98027d3" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-2211.84px, 0px, 0px);"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" role="group" aria-label="1 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" role="group" aria-label="2 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="2" role="group" aria-label="3 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div><div class="swiper-slide swiper-slide-duplicate-active" data-swiper-slide-index="0" role="group" aria-label="4 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div> <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="1" role="group" aria-label="5 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div> <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2" role="group" aria-label="6 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div><div class="swiper-slide swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="0" role="group" aria-label="7 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div><div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="1" role="group" aria-label="8 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="2" role="group" aria-label="9 / 9"><img src="./通行预约系统_files/banner1.png" alt="" style="border-radius: 18px;"></div></div> <div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div></div> <div class="quick-nav"><ul><li id="biaodan"><img src="./通行预约系统_files/icon-yy.png" alt=""> <span>预约申请</span></li> <li id="zhuangtai"><img src="./通行预约系统_files/icon-bg.png" alt=""> <span>预约状态</span></li> <li id="oa"><img src="./通行预约系统_files/icon-tjk.png" alt=""> <span>外出须知</span></li> <li id="shenpi"><img src="./通行预约系统_files/icon-wdtj.png" alt=""> <span>预约审批</span></li></ul></div> <div class="services"><div class="title"><span>更多服务</span></div> <div class="list"><ul><li id="fanxiao"><p>返校申请</p> <span>按学校通知时间返校</span></li> <li id="daka"><p>信息上报</p> <span>健康打卡，每日报平安</span></li></ul></div></div></div>
+
+
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            activeTab: 1,
+            swiper: null
+        },
+        mounted: function () {
+            this.$nextTick(function () {
+                this.swiper = new Swiper('.swiper-container', {
+                    autoplay: true,
+                    loop: true,
+                    slidesPerView: 'auto',
+                    centeredSlides: true,
+                    pagination: {
+                        el: '.swiper-pagination'
+                    }
+                })
+            })
+        },
+        methods: {
+            // 切换tap-bar
+            changeTab: function (item) {
+                this.activeTab = item
+            },
+            // 预约
+            yuyue(){
+                alert("预约成功")
+            }
+        }
+    })
+
+    var zhuangtai = document.getElementById("zhuangtai");
+    zhuangtai.addEventListener("click", gotoshenpi);
+
+    var shenpi = document.getElementById("shenpi");
+    shenpi.addEventListener("click", gotoshenpi);
+
+    function gotoshenpi(){
+        
+        console.log("进入审批");
+        self.location='https://sdfefadfga.github.io/web1-1/'; 
+
+    
+    }
+
+    var fanxiao = document.getElementById("fanxiao");
+    fanxiao.addEventListener("click", gotofanxiao);
+
+    var daka = document.getElementById("daka");
+    daka.addEventListener("click", gotodaka);
+
+    function gotofanxiao(){
+        
+        console.log("进入返校");
+        self.location='http://yqapp.cug.edu.cn/xsfw/sys/swmfxyqglapp/*default/index.do'; 
+
+    
+    }
+
+    function gotodaka(){
+        
+        console.log("进入打卡");
+        self.location='http://yqapp.cug.edu.cn/xsfw/sys/swmxsyqxxsjapp/*default/index.do'; 
+
+    
+    }
+
+    var biaodan = document.getElementById("biaodan");
+    biaodan.addEventListener("click", gotobiaodan);
+
+    function gotobiaodan(){
+        
+        console.log("进入表单");
+        self.location='http://xycrgl.cug.edu.cn/reserve.php/reserve/myadd'; 
+
+    
+	
+    }
+	
+	var oa = document.getElementById("oa");
+    oa.addEventListener("click", gotooa);
+
+    function gotooa(){
+        
+        console.log("进入表单");
+        self.location='http://xycrgl.cug.edu.cn/index/index/notice'; 
+    
+    }
+
+</script></body></html>
